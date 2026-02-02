@@ -2,7 +2,9 @@ package com.guchi.simpleWebApp.controller;
 
 import com.guchi.simpleWebApp.model.Product;
 import com.guchi.simpleWebApp.service.ProductService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,5 +42,13 @@ public class ProductController {
     public void deleteProduct(@PathVariable int productId) {
         service.deleteProduct(productId);
     }
+
+    @GetMapping("/csrf-token")
+    public CsrfToken getCsrfToken(HttpServletRequest request) {
+        return (CsrfToken) request.getAttribute("_csrf");
+    }
 }
+
+
+
 
