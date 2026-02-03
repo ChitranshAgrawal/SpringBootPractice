@@ -2,12 +2,17 @@ package com.guchi.simpleWebApp.model;
 
 //import jakarta.persistence.Entity;
 //import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 //import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 //import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -34,8 +39,18 @@ import lombok.NoArgsConstructor;
 public class Product {
 
     @Id
-    private int productId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment the id, no need to write or give id value manually
+    private Integer productId;
     private String productName;
-    private int price;
+    private Integer price;
+    private String productDesc;
+    private String brand;
+    private String category;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy") // date format
+    private Date releaseDate;
+    private Boolean available;
+    private Integer productQuantity;
 }
+
+
 

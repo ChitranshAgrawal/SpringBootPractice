@@ -2,13 +2,9 @@ package com.guchi.simpleWebApp.service;
 
 import com.guchi.simpleWebApp.model.Product;
 import com.guchi.simpleWebApp.repository.ProductRepo;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 

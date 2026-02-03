@@ -6,6 +6,8 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 
@@ -26,7 +28,9 @@ public class SecurityConfig {
         // builder pattern
         return http
                 .csrf(customizer -> customizer.disable()) // disable csrf
-                .authorizeHttpRequests(request -> request.anyRequest().authenticated())
+//                .authorizeHttpRequests(request -> request.anyRequest().authenticated())
+                // we can comment this above line for practice. it will disable the authentication for frontend
+
                 .httpBasic(Customizer.withDefaults()) // rest api
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .build();
@@ -35,4 +39,13 @@ public class SecurityConfig {
 
 //        return http.build(); // build returns the object of security filter chain
     }
+
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        return new InMemoryUserDetailsManager();
+//    }
 }
+
+
+
+
