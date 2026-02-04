@@ -50,7 +50,10 @@ public class Product {
     private Date releaseDate;
     private Boolean available;
     private Integer productQuantity;
-}
 
+    private String imageName;
+    private String imageType;
+    private byte[] imageData;
+}
 
 
